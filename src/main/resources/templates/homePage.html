@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org" >
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    #titulo{
+      text-align: center;
+    }
+    #formulario{
+
+      margin-right: auto;
+      margin-left: auto;
+
+    }
+  </style>
+</head>
+<body>
+
+<h2 id="titulo">Buscar Localizacao</h2>
+
+<form class="form-group" action="buscar" method="post">
+  <label>Pesquisar por Conteudo</label>
+  <input type="text" name="conteudo" >
+  <input type="submit" value="Buscar" class="btn btn-primary">
+
+</form>
+
+
+<table id="mortos" class="table table-striped">
+  <thead>
+  <tr>
+    <th style="width: 150px;">Documento</th>
+    <th style="width: 200px;">Caixa</th>
+    <th style="width: 200px;">Prateleira</th>
+    <th style="width: 200px;">Conteudo</th>
+    
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="morto : ${mortos}">
+    <td th:text="${morto.documento}"/>
+    <td th:text="${morto.caixa}"/>
+    <td th:text="${morto.prateleira}"/>
+   <td th:text="${morto.conteudo}"/>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>
